@@ -17,6 +17,7 @@ char	*f_extracting(char *pathname);
 int		count_lines(char *str);
 char	*parse_key(char *str);
 char	*parse_value(char *str);
+t_dict	*t_dico_fulfill(char *dict_str, t_dict *t_dico);
 t_dict	*parser(char *pathname);
 char	*find_by_key(char *key, t_dict *t_dico);
 void	print_t_dict(t_dict *t_dico);

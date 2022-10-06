@@ -11,9 +11,16 @@ t_dict	*parser(char *pathname)
 	if (!dict_str)
 		return (NULL);
 	lines = count_lines(dict_str);
-	t_dico = malloc((count_lines(dict_str) + 1) * sizeof(t_dict));
+	t_dico = malloc((lines + 1) * sizeof(t_dict));
 	if (!t_dico)
 		return (NULL);
+	t_dico = t_dico_fulfill(dict_str, t_dico);
+	free(dict_str);
+	return (t_dico - lines);
+}
+
+t_dict	*t_dico_fulfill(char *dict_str, t_dict *t_dico)
+{
 	while (*dict_str == '\n') //skip possible empty lines at beggining of file
 		dict_str++;
 	while (*dict_str)
@@ -31,8 +38,7 @@ t_dict	*parser(char *pathname)
 		t_dico++;
 	}
 	t_dico->key = NULL;
-	free(dict_str - f_sizing(pathname));
-	return (t_dico - lines);
+	return (t_dico);
 }
 
 void	print_t_dict(t_dict *t_dico)
