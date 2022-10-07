@@ -17,6 +17,8 @@ char	*f_extracting(char *pathname);
 int		count_lines(char *str);
 char	*parse_key(char *str);
 char	*parse_value(char *str);
+int	check_column(char *dict_str);
+int	check_dict_str(char *dict_str, int lines);
 t_dict	*t_dico_fulfill(char *dict_str, t_dict *t_dico);
 t_dict	*parser(char *pathname);
 char	*find_by_key(char *key, t_dict *t_dico);
@@ -25,3 +27,8 @@ void	print_t_dict(t_dict *t_dico);
 #endif
 
 // AJOUT necessaire d'une focntion qui vérifie les entrées du dict, une fois qu'il est parsé disons
+
+// VERIFIE lors du parsing les dict error : 
+//- pas de ":"
+//- nb lignes < 41
+//etc

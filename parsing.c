@@ -28,7 +28,6 @@ char	*f_extracting(char *pathname)
 	if (fd < 0)
 		return (NULL);
 	read(fd, res, f_sizing(pathname));
-//ajut ici d'un '\0' en fin de string? --> res[f_sizing("numbers.dict")] = '\0' ET + 1 dans le malloc
 	close(fd);
 	return (res);
 }
