@@ -8,7 +8,7 @@ int	main(int argc, char *argv[])
 {
 	char	*pathname;
 	char	*nbr_str;
-	//char	**res;
+	char	**res;
 
 	if (argc < 2 || argc > 3)
 		return (-1);
@@ -25,9 +25,9 @@ int	main(int argc, char *argv[])
 	if (check_args(pathname, nbr_str))
 		return (-2);
 	printf("args ok!\n");
-	//res = nbr_comp_to_strss(count_triplet(nbr_str), parse_number(char *str_nbr), parse(pathname));	
-	//if (!res)
-	//	return (-3);
+	res = nbr_comp_to_strs(count_triplet(nbr_str), parse_number(nbr_str), parser(pathname));	
+	if (!res)
+		return (-3);
 }
 
 int	check_args(char *pathname, char *nbr_str)
