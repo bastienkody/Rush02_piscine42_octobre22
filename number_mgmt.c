@@ -46,17 +46,10 @@ t_number	*t_nbr_fulfill(t_number *t_nbr, char *str_nbr, int nb_triplet)
 		if (!t_nbr[i].pos)
 			return (NULL);
 		t_nbr[i].unite[0] = str_nbr[--str_len]; 
-		t_nbr[i].unite[1] = '\0';
 		if (--str_len > -1) 
-		{
 			t_nbr[i].dizaine[0] = str_nbr[str_len]; 
-			t_nbr[i].dizaine[1] = '\0';
-		}
 		if (--str_len > -1) 
-		{
 			t_nbr[i].centaine[0] = str_nbr[str_len]; 
-			t_nbr[i].centaine[1] = '\0';
-		}
 	}
 	return (t_nbr);
 }
@@ -71,7 +64,7 @@ char	*gen_pos(int i)
 		return (NULL);
 	j = 0;
 	pos[j] = '1';
-	while (++j < (i * 3))
+	while (++j <= (i * 3))
 		pos[j] = '0';
 	pos[j] = '\0';
 	return (pos);
@@ -105,7 +98,7 @@ void	free_t_nbr(t_number *t_nbr, int t_nbr_len)
 
 }
 
-int	main(void)
+/*int	main(void)
 {
 	parse_number("123456789");
-}
+}*/

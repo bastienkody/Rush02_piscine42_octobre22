@@ -111,7 +111,7 @@ void	free_t_dict(t_dict *t_dico)
 	free(t_dico);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	t_dict	*t_dico;
 
@@ -122,4 +122,4 @@ int	main(void)
 	free_t_dict(t_dico);
 	return (0);
 	
-}
+}*/
