@@ -11,8 +11,7 @@ t_number	*parse_number(char *str_nbr)
 		return (NULL);
 	t_nbr = t_nbr_z_fulfill(t_nbr, nb_triplet);
 	t_nbr = t_nbr_fulfill(t_nbr, str_nbr, nb_triplet);
-	print_t_number(t_nbr, nb_triplet);
-//	free_t_nbr(t_nbr, nb_triplet);
+	//print_t_number(t_nbr, nb_triplet);
 	return (t_nbr);
 }
 

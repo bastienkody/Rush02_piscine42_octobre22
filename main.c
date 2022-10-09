@@ -3,12 +3,14 @@
 #include "util_str.h"
 #include "comp_nbr.h"
 int	check_args(char *pathname, char *nbr_str);
+void	free_strs(char **strs);
 
 int	main(int argc, char *argv[])
 {
 	char	*pathname;
 	char	*nbr_str;
 	char	**res;
+	int		i;
 
 	if (argc < 2 || argc > 3)
 		return (-1);
@@ -24,10 +26,19 @@ int	main(int argc, char *argv[])
 	}
 	if (check_args(pathname, nbr_str))
 		return (-2);
-	printf("args ok!\n");
 	res = nbr_comp_to_strs(count_triplet(nbr_str), parse_number(nbr_str), parser(pathname));	
 	if (!res)
 		return (-3);
+	i = -1;
+	while (res[++i])
+	{
+		ft_putstr(res[i]);
+		if (res[i + 1] != NULL)
+			ft_putchar(' ');
+	}
+	ft_putchar('\n');
+	free_strs(res);
+	return (0);
 }
 
 int	check_args(char *pathname, char *nbr_str)
@@ -47,4 +58,14 @@ int	check_args(char *pathname, char *nbr_str)
 		nbr_str++;
 	}
 	return (0);
+}
+
+void	free_strs(char **strs)
+{
+	int	i;
+
+	i = -1;
+	while (strs[++i])
+		free(strs[i]);
+	free(strs);
 }
