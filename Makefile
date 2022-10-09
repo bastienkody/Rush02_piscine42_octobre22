@@ -1,6 +1,8 @@
-SRCS=	file_mgmt.c parsing_ft.c util_str.c number_mgmt.c print_nbr.c main.c
+SRCS=	main.c file_mgmt.c parsing.c number_mgmt.c comp_nbr.c util_str.c
 
 OBJS=	${SRCS:.c=.o}
+
+EXEC=	rush-02
 
 CC= 	gcc
 
@@ -10,13 +12,13 @@ CFLAGS=	-Wall -Wextra -Werror
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 all:	${OBJS}
-		gcc ${OBJS}
+		gcc -o ${EXEC} ${OBJS}
 
 clean:	
 		rm -rf *.o
 
 fclean: clean
-		rm -rf a.out
+		rm -rf ${EXEC}
 
 re:	fclean all
 		
