@@ -1,6 +1,6 @@
 #include "file_mgmt.h"
 
-int		f_sizing(char *pathname)
+int	f_sizing(char *pathname)
 {
 	int		fd;
 	int		counter;
@@ -21,7 +21,7 @@ char	*f_extracting(char *pathname)
 	int		fd;
 	char	*res;
 
-	res = malloc( (f_sizing(pathname) + 0) * sizeof(char) );
+	res = malloc((f_sizing(pathname) + 0) * sizeof(char));
 	if (!res)
 		return (NULL);
 	fd = open(pathname, O_RDONLY);
@@ -32,7 +32,7 @@ char	*f_extracting(char *pathname)
 	return (res);
 }
 
-int		count_lines(char *str)
+int	count_lines(char *str)
 {
 	int	counter;
 	int	i;

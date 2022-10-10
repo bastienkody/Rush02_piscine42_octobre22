@@ -31,7 +31,7 @@ int	check_dict_str(char *dict_str, int lines)
 	if (!check_column(dict_str))
 	{
 		ft_putstr("dict_error (':')\n");
-			return (0);
+		return (0);
 	}
 	return (1);
 }
@@ -39,20 +39,21 @@ int	check_dict_str(char *dict_str, int lines)
 int	check_column(char *dict_str)
 {
 	int	i;
-	int j;
+	int	j;
 	int	trigger;
 
 	i = 0;
 	while (dict_str[i])
 	{
-		if (dict_str[i] == '\n' && dict_str[i + 1] != '\n' && dict_str[i + 1] != '\0')
+		if (dict_str[i] == '\n' && dict_str[i + 1] != '\n'
+			&& dict_str[i + 1] != '\0')
 		{
 			j = 1;
 			trigger = 0;
 			while (dict_str[i + j] != '\n' && dict_str[i + j] != '\n')
 			{
 				if (dict_str[i + j] == ':')
-					trigger = 1;				
+					trigger = 1;
 				j++;
 			}
 			if (!trigger)
@@ -85,18 +86,6 @@ t_dict	*t_dico_fulfill(char *dict_str, t_dict *t_dico)
 	return (t_dico);
 }
 
-void	print_t_dict(t_dict *t_dico)
-{
-	while (t_dico->key)
-	{
-		ft_putstr(t_dico->key);
-		ft_putchar('\n');
-		ft_putstr(t_dico->value);
-		ft_putchar('\n');
-		t_dico++;
-	}	
-}
-
 void	free_t_dict(t_dict *t_dico)
 {
 	int	i;
@@ -110,7 +99,17 @@ void	free_t_dict(t_dict *t_dico)
 	}
 	free(t_dico);
 }
-
+/*void	print_t_dict(t_dict *t_dico)
+{
+	while (t_dico->key)
+	{
+		ft_putstr(t_dico->key);
+		ft_putchar('\n');
+		ft_putstr(t_dico->value);
+		ft_putchar('\n');
+		t_dico++;
+	}	
+}*/
 /*int	main(void)
 {
 	t_dict	*t_dico;

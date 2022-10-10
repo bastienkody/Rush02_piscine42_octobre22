@@ -21,27 +21,20 @@ void	ft_putstr(char *str)
 		ft_putchar(*str++);
 }
 
-char	*ft_strcpy(char *dest, char *src)
-{
-	char	*ptr;
-
-	ptr = dest;
-	while (*src)
-		*ptr++ = *src++;
-	*ptr = '\0';
-	return (dest);
-}
-
 char	*ft_strdup(char *src)
 {
 	int		src_len;
 	char	*dest;
+	char	*ptr;
 
 	src_len = ft_strlen(src);
 	dest = malloc(sizeof(char) * (src_len + 1));
 	if (!dest)
 		return (NULL);
-	dest = ft_strcpy(dest, src);
+	ptr = dest;
+	while (*src)
+		*ptr++ = *src++;
+	*ptr = '\0';
 	return (dest);
 }
 

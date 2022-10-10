@@ -2,7 +2,8 @@
 #include "number_mgmt.h"
 #include "util_str.h"
 #include "comp_nbr.h"
-int	check_args(char *pathname, char *nbr_str);
+
+int		check_args(char *pathname, char *nbr_str);
 void	free_strs(char **strs);
 
 int	main(int argc, char *argv[])
@@ -19,14 +20,14 @@ int	main(int argc, char *argv[])
 		pathname = "numbers.dict";
 		nbr_str = argv[1];
 	}
-	else 
+	else
 	{
 		pathname = argv[1];
 		nbr_str = argv[2];
 	}
 	if (check_args(pathname, nbr_str))
 		return (-2);
-	res = nbr_comp_to_strs(count_triplet(nbr_str), parse_number(nbr_str), parser(pathname));	
+	res = nbr_comp_to_strs(count_triplet(nbr_str), parse_number(nbr_str), parser(pathname));
 	if (!res)
 		return (-3);
 	i = -1;
