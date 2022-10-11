@@ -14,7 +14,6 @@ typedef struct s_number
 	char	*pos;
 }	t_number;
 
-int			count_triplet(char *str_nbr);
 char		*gen_pos(int i);
 t_number	*t_nbr_z_fulfill(t_number *t_nbr, int nb_triplet);
 t_number	*t_nbr_fulfill(t_number *t_nbr, char *str_nbr, int nb_triplet);

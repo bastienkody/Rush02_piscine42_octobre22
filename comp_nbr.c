@@ -12,7 +12,7 @@ char	**nbr_comp_to_strs(int t_nbr_len, t_number *t_nbr, t_dict *t_dico)
 
 	word_nb = wd_nb(t_nbr_len, t_nbr);
 	strs = malloc((word_nb + 1) * sizeof(char *));
-	if (!strs)
+	if (!strs || !t_dico)
 		return (NULL);
 	strs = strs_ff(strs, t_nbr_len, t_nbr, t_dico);
 	strs -= word_nb;

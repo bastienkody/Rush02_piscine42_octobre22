@@ -11,8 +11,9 @@ char	**find_key(char **strs, char *key, t_dict *t_dico)
 		}
 		t_dico++;
 	}
+	*strs++ = NULL;
 	ft_putstr("Error (key not found in dict)\n");
-	return (NULL);
+	return (strs);
 }
 
 char	**find_centaine(char **strs, char *key, t_dict *t_dico)
@@ -34,7 +35,7 @@ char	**find_centaine(char **strs, char *key, t_dict *t_dico)
 			return (strs);
 		}
 	}
-	ft_putstr("Error (key not found in dict)\n");
+	ft_putstr("Error (key centaine not found in dict)\n");
 	return (NULL);
 }
 

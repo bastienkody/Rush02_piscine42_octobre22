@@ -66,7 +66,7 @@ int	check_column(char *dict_str)
 
 t_dict	*t_dico_fulfill(char *dict_str, t_dict *t_dico)
 {
-	while (*dict_str == '\n') //skip possible empty lines at beggining of file
+	while (*dict_str == '\n')
 		dict_str++;
 	while (*dict_str)
 	{
@@ -78,7 +78,7 @@ t_dict	*t_dico_fulfill(char *dict_str, t_dict *t_dico)
 			return (NULL);
 		while (*dict_str != '\n')
 			dict_str++;
-		while (*dict_str == '\n') //skip possible empty lines. 
+		while (*dict_str == '\n')
 			dict_str++;
 		t_dico++;
 	}

@@ -84,10 +84,10 @@ char	*parse_value(char *str)
 	while (*str != ':')
 			str++;
 	str++;
-	while (*str == ' ') // skip les premiers espaces avant value
+	while (*str == ' ')
 		str++;
 	i = 0;
-	while (str[i] > 31 && str[i] < 127) // prend les espaces de value
+	while (str[i] > 31 && str[i] < 127)
 		i++;
 	if (i < 1)
 		return (NULL);
