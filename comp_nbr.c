@@ -38,15 +38,13 @@ char	**strs_ff(char **strs, int t_nbr_len, t_number *t_nbr, t_dict *t_dico)
 			strs = find_centaine(strs, t_nbr[i].centaine, t_dico);
 		if (t_nbr[i].dizaine[0] == '1')
 			strs = find_teen(strs, t_nbr[i].dizaine, t_nbr[i].unite, t_dico);
-		else
-		{
-			if (t_nbr[i].dizaine[0] > '1')
-				strs = find_dizaine(strs, t_nbr[i].dizaine, t_dico);
-			if (t_nbr[i].unite[0] != '0')
-				strs = find_key(strs, t_nbr[i].unite, t_dico);
-			else if ((wd_nb(t_nbr_len, t_nbr) == 1) && (i == t_nbr_len - 1))
-				strs = find_key(strs, t_nbr[i].unite, t_dico);
-		}
+		if (t_nbr[i].dizaine[0] > '1')
+			strs = find_dizaine(strs, t_nbr[i].dizaine, t_dico);
+		if (t_nbr[i].unite[0] != '0' && t_nbr[i].dizaine[0] != '1')
+			strs = find_key(strs, t_nbr[i].unite, t_dico);
+		if (t_nbr[i].unite[0] == '0' && t_nbr[i].dizaine[0] == '0'
+			&& wd_nb(t_nbr_len, t_nbr) == 1 && (i == t_nbr_len - 1))
+			strs = find_key(strs, t_nbr[i].unite, t_dico);
 		if (ft_strcmp(t_nbr[i].pos, "1") && (t_nbr[i].centaine[0] != '0'
 				|| t_nbr[i].dizaine[0] != '0' || t_nbr[i].unite[0] != '0'))
 				strs = find_key(strs, t_nbr[i].pos, t_dico);
@@ -68,15 +66,13 @@ int	wd_nb(int t_nbr_len, t_number *t_nbr)
 			nb += 2;
 		if (t_nbr[i].dizaine[0] == '1')
 			nb += 1;
-		else
-		{
-			if (t_nbr[i].dizaine[0] > '1')
-				nb += 1;
-			if (t_nbr[i].unite[0] != '0')
-				nb += 1;
-			else if ((nb == 0) && (i == t_nbr_len - 1))
-				nb += 1;
-		}
+		if (t_nbr[i].dizaine[0] > '1')
+			nb += 1;
+		if (t_nbr[i].unite[0] != '0' && t_nbr[i].dizaine[0] != '1')
+			nb += 1;
+		if (t_nbr[i].unite[0] == '0' && t_nbr[i].dizaine[0] == '0'
+			&& (nb == 0) && (i == t_nbr_len - 1))
+			nb += 1;
 		if (ft_strcmp(t_nbr[i].pos, "1") && (t_nbr[i].centaine[0] != '0'
 				|| t_nbr[i].dizaine[0] != '0' || t_nbr[i].unite[0] != '0'))
 				nb += 1;
